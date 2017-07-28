@@ -50,5 +50,17 @@ router.route('/user/:username')
     })
 ;
 
+router.route('/user/:username/list/:id')
+    .get((req, res) => {
+        res.json({
+            message: "got GET request"
+        })
+    })
+    .put((req, res) => {
+        res.json({
+            message: "got PUT request"
+        })
+    })
+;
 
 module.exports = router;
