@@ -21,4 +21,4 @@ yarn-debug.log*
 yarn-error.log*
 
 # project specific
-server/config.js
+/server/config.js
