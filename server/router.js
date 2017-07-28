@@ -2,9 +2,9 @@
 var express = require("express");
 var router = express.Router();
 const _ = require("lodash");
-const User = require("./model/user");
-const List = require("./model/list");
-const ListEntry = require("./model/listentry");
+const User = require("./model/models");
+const List = require("./model/models");
+const ListEntry = require("./model/models");
 
 router.route('/user/:username')
     .get((req, res) => {
@@ -49,11 +49,13 @@ router.route('/user/:username')
                     }
                 });
             }
-        })
+        });
     })
 ;
 
+    // Lists
 router.route('/user/:username/list/:id')
+    // Get users list by ID
     .get((req, res) => {
         User.findOne({ 'username': req.params.username }, (err, user) => {
             if (err) {
@@ -76,16 +78,37 @@ router.route('/user/:username/list/:id')
             } else {
                 res.status(400).json({
                    error: {
-                       message: "User was not found"
+                       message: "User was not found";
                    } 
                 });
             }
         });
     })
+    //Update users list
     .put((req, res) => {
-        res.json({
-            message: "got PUT request"
-        })
+        User.findOne({ 'username': req.params.username }, (err, user) => {
+            if (err) {
+                res.send(err);
+            }
+            if (user) {
+                // The doc-data that needs to be updated.
+                const doc = {
+                    'lists': req.body.lists
+                }
+                User.update({ 'username': req.params.username }, doc, (err, raw) => {
+                    if (err) {
+                        res.send(err);
+                    }
+                    res.json(raw);
+                })
+            } else {
+                res.status(400).json({
+                   error: {
+                       message: "User was not found"
+                   } 
+                });
+            }
+        });
     })
 ;
 
