@@ -9,4 +9,4 @@ const ListSchema = new Schema({
     items: Array
 });
 
-module.exports = mongoose.model('ShoppingList', ListSchema);
+module.exports = mongoose.model('List', ListSchema);

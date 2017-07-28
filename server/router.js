@@ -1,6 +1,7 @@
 'use strict';
 var express = require("express");
 var router = express.Router();
+const _ = require("lodash");
 const User = require("./model/user");
 const List = require("./model/list");
 const ListEntry = require("./model/listentry");
@@ -59,17 +60,19 @@ router.route('/user/:username/list/:id')
                 res.send(err);
             }
             if (user) {
-                List.findOne({ 'listId': req.params.id }, (err, list) => {
-                    if (list) {
-                        res.json(list);
-                    } else {
-                        res.status(400).json({
-                            error: {
-                                message: "List was not found"
-                            } 
-                        });
-                    }
-                });
+                const listMatch = _.find(user.lists, o => {
+                    return o.listId == req.params.id;
+                })
+                if (!listMatch) {
+                    res.json({
+                        error: {
+                            message: `List id: ${req.params.id} was not found`
+                        }
+                    });
+                } else {
+                    // Send list[id] back
+                    res.json(listMatch);
+                }
             } else {
                 res.status(400).json({
                    error: {

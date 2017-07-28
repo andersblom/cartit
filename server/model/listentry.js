@@ -5,7 +5,7 @@ var Schema = mongoose.Schema;
 const ListEntrySchema = new Schema({
     itemName: String,
     order: Number,
-    statusIsDone: Boolean
+    statusIsDone: { type: Boolean, default: false }
 });
 
 module.exports = mongoose.model('ListEntry', ListEntrySchema);
