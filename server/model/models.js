@@ -14,9 +14,14 @@ const ListSchema = new Schema({
     items: [ShoppingListItem]
 });
 
+ListSchema.method("updateListToUser", function(updates, callback) {
+    Object.assign(this, updates);
+    this.parent().save(callback);
+});
+
 const UserSchema = new Schema({
     username: String,
-    isPro: Boolean,
+    isPro: { type: Boolean, default: false },
     password: String,
     email: String,
     createdAt: { type: Date, default: Date.now }, //test purposes: 1501249604563

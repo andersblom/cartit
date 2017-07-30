@@ -38,6 +38,38 @@ router.get("/user/:userID", (req, res, next) => {
 });
 
 /*
+ * POST /user
+ * 
+ */
+router.post("/user", (req, res, next) => {
+    // Creating new user from model
+    const newUser = new User(req.body);
+
+    // Checking if the username already exists
+    User.findOne({ username: newUser.username }, (err, user) => {
+        if (user) {
+            // If user exists
+            res.status(400).json({error: { message: "User already exists" }});
+        } else {
+            // If user doesn't exist.
+            newUser.save((err, newUser) => {
+                if (err) return next(err);
+                res.status(201);
+            });
+            res.json(newUser);
+        }
+    });
+});
+
+/*
+ * PUT /user/:userID
+ * 
+ */
+router.put("/user/:userID", (req, res, next) => {
+    res.json({message: "/user/ID PUT "});
+});
+
+/*
  * GET /user/:userID/lists
  * Used for retrieving list contents
  */
@@ -47,14 +79,28 @@ router.get("/user/:userID/lists", (req, res, next) => {
 
 
 /*
- * GET /user/:userID/lists/listID
+ * GET /user/:userID/lists/:listID
  * Used for retrieving list contents
  */
 router.get("/user/:userID/lists/:listID", (req, res, next) => {
     res.json(req.list);
 });
 
+/*
+ * PUT /user/:userID/lists/:listID
+ * 
+ */
+router.put("/user/:userID/lists/:listID", (req, res, next) => {
+    res.json({message: "/user/ID/lists/ID PUT "});
+});
 
+/*
+ * POST /user/:userID/lists
+ * 
+ */
+router.post("/user/:userID/lists", (req, res, next) => {
+    res.json({message: "/user/ID/lists POST "});
+});
 
 
 module.exports = router;
