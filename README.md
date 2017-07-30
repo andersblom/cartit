@@ -2,16 +2,15 @@
 Shoppinglist tool made to be used on the fly with minimum gestures.
 
 ## Set up
+### Hosted version
+Hosted version will be up when it's ready to be deployed to production
+
 ### Local development
 1. Clone the repo to your machine.
 2. Start MongoDB or create a free-tier deployment at [www.mlab.com](https://mlab.com/).
 3. Include your own MongoDB connection values in *server/dbConfig-example.js* and rename it to *server/dbConfig.js*.
 4. Run `npm run start-dev` to start the Express server and the Webpack dev server.
-
 All ready!
-
-### Hosted version
-Hosted version will be up when it's ready to be deployed to production
 
 ## API
 ```GET /user/<USER ID>``` 
