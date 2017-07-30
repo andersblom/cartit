@@ -2,7 +2,7 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-const ListEntrySchema = new Schema({
+const ShoppingListItem = new Schema({
     itemName: String,
     order: Number,
     statusIsDone: { type: Boolean, default: false }
@@ -11,8 +11,7 @@ const ListEntrySchema = new Schema({
 const ListSchema = new Schema({
     title: String,
     listCreatedAt: { type: Date, default: Date.now },
-    listId: Number,
-    items: [ListEntrySchema]
+    items: [ShoppingListItem]
 });
 
 const UserSchema = new Schema({
@@ -24,6 +23,6 @@ const UserSchema = new Schema({
     lists: [ListSchema]
 });
 
-module.exports = mongoose.model('ListEntry', ListEntrySchema);
-module.exports = mongoose.model('List', ListSchema);
-module.exports = mongoose.model('User', UserSchema);
+const User = mongoose.model('User', UserSchema);
+
+module.exports.User = User;
