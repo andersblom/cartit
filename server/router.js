@@ -66,7 +66,7 @@ router.post("/user", (req, res, next) => {
  * User update profile
  */
 router.put("/user/:userID", (req, res, next) => {
-    // Checking if the user is real
+    // Checking if the user exists
     User.findOne({ _id: req.params.userID }, (err, user) => {
         if (user) {
             User.update(req.body, (err, user) => {
@@ -91,7 +91,7 @@ router.get("/user/:userID/lists", (req, res, next) => {
 
 /*
  * GET /user/:userID/lists/:listID
- * Used for retrieving list contents
+ * Used for retrieving list info + contents
  */
 router.get("/user/:userID/lists/:listID", (req, res, next) => {
     res.json(req.list);
@@ -99,10 +99,13 @@ router.get("/user/:userID/lists/:listID", (req, res, next) => {
 
 /*
  * PUT /user/:userID/lists/:listID
- * 
+ * Updating a specific list that belongs to a specific user
  */
 router.put("/user/:userID/lists/:listID", (req, res, next) => {
-    res.json({message: "/user/ID/lists/ID PUT "});
+    req.list.updateListToUser(req.body, function(err, user) {
+        if (err) return next(err);
+        res.json(user);
+    });
 });
 
 /*
