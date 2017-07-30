@@ -104,7 +104,6 @@ router.get("/user/:userID/lists", (req, res, next) => {
     res.json(req.user.lists);
 });
 
-
 /*
  * GET /user/:userID/lists/:listID
  * Used for retrieving list info + contents
