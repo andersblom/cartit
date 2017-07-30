@@ -39,7 +39,7 @@ router.get("/user/:userID", (req, res, next) => {
 
 /*
  * POST /user
- * 
+ * User creation
  */
 router.post("/user", (req, res, next) => {
     // Creating new user from model
@@ -55,18 +55,29 @@ router.post("/user", (req, res, next) => {
             newUser.save((err, newUser) => {
                 if (err) return next(err);
                 res.status(201);
+                res.json(newUser);
             });
-            res.json(newUser);
         }
     });
 });
 
 /*
  * PUT /user/:userID
- * 
+ * User update profile
  */
 router.put("/user/:userID", (req, res, next) => {
-    res.json({message: "/user/ID PUT "});
+    // Checking if the user is real
+    User.findOne({ _id: req.params.userID }, (err, user) => {
+        if (user) {
+            User.update(req.body, (err, user) => {
+                if (err) return next(err);
+                res.json(user);
+            });
+        } else {
+            // If user doesn't exist.
+            res.status(400).json({error: { message: "User doesn't exist" }});
+        }
+    });
 });
 
 /*
