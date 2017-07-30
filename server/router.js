@@ -110,10 +110,18 @@ router.put("/user/:userID/lists/:listID", (req, res, next) => {
 
 /*
  * POST /user/:userID/lists
- * 
+ * Creating a new list to a specific user
  */
 router.post("/user/:userID/lists", (req, res, next) => {
-    res.json({message: "/user/ID/lists POST "});
+    // Add list to array
+    req.user.lists.push(req.body);
+
+    req.user.save((err, user) => {
+        if (err) return next(err);
+        res.status(201);
+        res.json(user);
+    });
+    
 });
 
 
