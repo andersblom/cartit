@@ -1,5 +1,4 @@
 # CartIt
-======
 Shoppinglist tool made to be used on the fly with minimum gestures.
 
 ## Set up
