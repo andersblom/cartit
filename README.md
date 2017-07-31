@@ -13,6 +13,9 @@ Hosted version will be up when it's ready to be deployed to production
 All ready!
 
 ## API
+If you run the server out of the box, all requests have to be made to http://localhost:3001/api. 
+An example query will then become: http://localhost:3001/api/user/597b5e5f2109eb33ae432eb9
+
 ```GET /user/<USER ID>``` 
 Will return an object of a single user matching the ID.
 
