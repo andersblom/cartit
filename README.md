@@ -19,7 +19,10 @@ An example query will then become: http://localhost:3001/api/user/597b5e5f2109eb
 ```GET /user/<USER ID>``` 
 Will return an object of a single user matching the ID.
 
-```POST /user```
+```POST /user/signin```
+Route for logging in to a user account. Returns 200 if the log in was succesful, 400 if the user/password combination does not match.
+
+```POST /user/signup```
 Creates a new user. Takes a few arguments in the body: *username*, *email*, *password* - all strings. Will automatically assign creation date, user ID, and a "isPro" status of false.
 
 ```PUT /user/<USER ID>```

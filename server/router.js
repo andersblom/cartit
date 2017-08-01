@@ -31,17 +31,38 @@ router.param("listID", (req, res, next, id) => {
 
 /*
  * GET /user/:userID
- * Used for retrieving user information when logging in/displaying lists
+ * Used for retrieving user information/displaying lists
  */
 router.get("/user/:userID", (req, res, next) => {
     res.json(req.user)
 });
 
 /*
- * POST /user
+ * POST /user/signin
+ * Used for retrieving user information/displaying lists
+ */
+router.post("/user/signin", (req, res, next) => {
+    const userToBeChecked = req.body;
+    User.findOne({ username: userToBeChecked.username }, (err, user) => {
+        if (err) return next(err);
+        if (user) {
+            if (user.password == userToBeChecked.password) {
+                res.status(200).json({user});
+            } else {
+                res.status(400).json({error: {message: "No user/password combination found"}});
+            }
+        } else {
+            // If user doesn't exist.
+            res.status(400).json({error: { message: "No user/password combination found" }});
+        }
+    });
+});
+
+/*
+ * POST /user/signup
  * User creation
  */
-router.post("/user", (req, res, next) => {
+router.post("/user/signup", (req, res, next) => {
     // Creating new user from model
     const newUser = new User(req.body);
 
