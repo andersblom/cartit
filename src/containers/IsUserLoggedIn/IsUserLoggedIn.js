@@ -9,11 +9,16 @@ export default class IsUserLoggedIn extends Component {
             user: {}
         }
     }
-    render() {
+
+    whatShouldIRedirecTo() {
         if (this.state.IsUserLoggedIn) {
             return(<div>{this.props.children}</div>)
-        } else {
-            return(<Redirect to={{ pathname: '/' }} />);
+        } else if (!this.state.IsUserLoggedIn) {
+            return(<div>ur not even logged in</div>)
         }
+    }
+    
+    render() {
+        return (this.whatShouldIRedirecTo());
     }
 }
