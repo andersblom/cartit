@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 
+import SignInSignUp from './../../components/SignInSignUp/SignInSignUp'
+
 export default class Authentication extends Component {
     constructor() {
         super();
         this.state = {
             IsUserLoggedIn: false,
-            user: {} 
+            user: undefined 
         }
     }
     
@@ -17,7 +19,7 @@ export default class Authentication extends Component {
             );
         } else {
             return(
-                <div>log in here:</div>
+                <SignInSignUp />
             );
         }
     }

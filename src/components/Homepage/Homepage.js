@@ -5,8 +5,8 @@ export default class Homepage extends Component {
     render() {
         return(
             <div>
-                <h1>Homepage here.</h1>
-                <Link to="/login">Log in</Link>
+                <h1>Homepage component here here.</h1>
+                <Link to="/login">Link to /login</Link>
             </div>
         )
     }
