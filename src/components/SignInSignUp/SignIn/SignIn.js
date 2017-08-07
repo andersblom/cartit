@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 
 import axios from 'axios';
 
+import './SignIn.css';
+
 export default class SignIn extends Component {
     constructor() {
         super();
@@ -53,7 +55,7 @@ export default class SignIn extends Component {
 
     render() {
         return(
-            <div>
+            <div className="signInContainer">
                 <form method="post" onSubmit={this.handleLoginRequest}>
                     <input type="text" name="username" value={this.state.usernameInput} onChange={this.handleUsernameInput} placeholder="username" />
                     <input type="password" name="password" value={this.state.passwordInput} onChange={this.handlePasswordInput} />
