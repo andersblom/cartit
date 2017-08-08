@@ -1,4 +1,4 @@
-.signInContainer {
+.signUpContainer {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -6,15 +6,10 @@
     align-items: center;
 }
 
-.signInContainer input {
+.signUpContainer input {
     display: block;
 }
 
-.signInContainer button {
+.signUpContainer button {
     display: block;
-}
-
-.signInError {
-    background-color: red;
-    padding: 1em 0.4em 1em 0.4em;
 }

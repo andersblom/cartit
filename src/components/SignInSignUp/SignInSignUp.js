@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 
 import SignIn from './SignIn/SignIn';
 import SignUp from './SignUp/SignUp';
+
+import './SignInSignUp.css';
 
 export default class SignInSignUp extends Component {
     constructor() {
@@ -15,7 +16,7 @@ export default class SignInSignUp extends Component {
     }
 
     toggleSignInUp() {
-        if (this.state.signInIsActive == true) {
+        if (this.state.signInIsActive === true) {
             this.setState({signInIsActive: false});
         } else {
             this.setState({signInIsActive: true});
@@ -23,14 +24,17 @@ export default class SignInSignUp extends Component {
     }
     render() {
         return(
-            <div>
-                <h1>This is the signIn/signUp component</h1>
-                <button onClick={this.toggleSignInUp}>{(this.state.signInIsActive) ? "I'd like to sign up" : "I already have a user"}</button>
-                {(this.state.signInIsActive) ? 
-                    <SignIn />
-                    : // else
-                    <SignUp />
-                }
+            <div className="signInSignUpPageContainer">
+                <div className="signInSignUpContainerInner">
+                    <h1 className="signInSignUpTitle">{(this.state.signInIsActive) ? "Sign in" : "Sign up"}</h1>
+                    {(this.state.signInIsActive) ? 
+                        <SignIn {...this.props} />
+                        : // else
+                        <SignUp />
+                    }
+
+                    <button className="signInOrUpToggle" onClick={this.toggleSignInUp}>{(this.state.signInIsActive) ? "I don't have a user" : "I already have a user"}</button>
+                </div>
             </div>
         );
     }

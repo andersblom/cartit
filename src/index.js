@@ -1,13 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import registerServiceWorker from './registerServiceWorker';
 
 import Authentication from './containers/Authentication/Authentication';
 
 import App from './App';
-import SignInSignUp from './components/SignInSignUp/SignInSignUp';
-import ShowAllLists from './components/ShowAllLists/ShowAllLists';
 import Homepage from './components/Homepage/Homepage';
 
 import './index.css';

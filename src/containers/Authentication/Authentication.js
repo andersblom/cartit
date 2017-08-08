@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
 
-import SignInSignUp from './../../components/SignInSignUp/SignInSignUp'
+import ShowAllLists from '../../components/ShowAllLists/ShowAllLists';
+import SignInSignUp from '../../components/SignInSignUp/SignInSignUp';
 
 export default class Authentication extends Component {
     constructor() {
@@ -10,16 +10,25 @@ export default class Authentication extends Component {
             IsUserLoggedIn: false,
             user: undefined 
         }
+
+        this.loginWasSuccessful = this.loginWasSuccessful.bind(this);
+    }
+
+    loginWasSuccessful(user) {
+        this.setState({
+            IsUserLoggedIn: true,
+            user: user
+        });
     }
     
     render() {
-        if (this.state.IsUserLoggedIn) {
+        if (this.state.IsUserLoggedIn === true) {
             return(
-                <div>Here are your lists:</div>
+                <ShowAllLists />
             );
         } else {
             return(
-                <SignInSignUp />
+                <SignInSignUp loginWasSuccessful={this.loginWasSuccessful} />
             );
         }
     }
