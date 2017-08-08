@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import ShowAllLists from '../../components/ShowAllLists/ShowAllLists';
+import UserIsLoggedIn from '../../components/UserIsLoggedIn/UserIsLoggedIn';
 import SignInSignUp from '../../components/SignInSignUp/SignInSignUp';
 
 export default class Authentication extends Component {
@@ -24,7 +24,7 @@ export default class Authentication extends Component {
     render() {
         if (this.state.IsUserLoggedIn === true) {
             return(
-                <ShowAllLists />
+                <UserIsLoggedIn user={this.state.user} {...this.props} />
             );
         } else {
             return(

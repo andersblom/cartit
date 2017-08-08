@@ -6,7 +6,7 @@ export default class Homepage extends Component {
         return(
             <div>
                 <h1>Homepage component here here.</h1>
-                <Link to="/login">Link to /login</Link>
+                <Link to="/user">Link to /user</Link>
             </div>
         )
     }

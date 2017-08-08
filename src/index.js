@@ -14,7 +14,7 @@ ReactDOM.render((
     <Router>
         <App>
             <Route exact path="/" component={Homepage} />
-            <Route path="/login" component={Authentication} />
+            <Route path="/user" component={Authentication} />
         </App>
     </Router>
 ), 
