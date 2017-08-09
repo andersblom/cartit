@@ -10,7 +10,7 @@ export default class UserIsLoggedIn extends Component {
         return(
             <div>
                 User logged in!
-                 Nav: <Link to={`${this.props.match.url}`}>Lists</Link> - <Link to={`${this.props.match.url}/settings`}>Settings</Link> 
+                 Nav: <Link to={`${this.props.match.url}`}>Lists</Link> - <Link to={`${this.props.match.url}/settings`}>Settings</Link> - <Link to={`/`} onClick={this.props.logUserOut}>Log out</Link>  
                 <Route exact path={`${this.props.match.url}/`} component={ShowAllLists} />
                 <Route path={`${this.props.match.url}/settings`} component={UserSettings} />
             </div>
