@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 import UserIsLoggedIn from '../../components/UserIsLoggedIn/UserIsLoggedIn';
 import SignInSignUp from '../../components/SignInSignUp/SignInSignUp';
@@ -16,19 +17,23 @@ export default class Authentication extends Component {
     }
 
     componentDidMount() {
-        if (localStorage.getItem("loggedIn")) {
-            this.setState({
-                user: localStorage.getItem("user"), //Needs to fetch username through AJAX
-                IsUserLoggedIn: true
-            });
-        } else {
-            //nah
+        if (localStorage.getItem("cartItloggedIn") && localStorage.getItem("cartItUserID")) {
+            axios.get(`http://localhost:3001/api/user/${localStorage.getItem("cartItUserID")}`)
+                .then(res =>{
+                    this.setState({
+                        user: res.data,
+                        IsUserLoggedIn: true
+                    });
+                })
+                .catch(err => {
+                    console.error(err);
+                })
         }
     }
 
     loginWasSuccessful(user) {
-        localStorage.setItem('user', user.username);
-        localStorage.setItem('loggedIn', true);
+        localStorage.setItem('cartItUserID', user._id);
+        localStorage.setItem('cartItloggedIn', true);
         this.setState({
             IsUserLoggedIn: true,
             user: user
@@ -36,8 +41,8 @@ export default class Authentication extends Component {
     }
 
     logUserOut() {
-        localStorage.removeItem("loggedIn");
-        localStorage.removeItem("user");
+        localStorage.removeItem("cartItloggedIn");
+        localStorage.removeItem("cartItUserID");
         this.setState({
             IsUserLoggedIn: false,
             user: undefined
