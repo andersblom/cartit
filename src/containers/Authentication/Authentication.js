@@ -17,8 +17,11 @@ export default class Authentication extends Component {
     }
 
     componentDidMount() {
-        if (localStorage.getItem("cartItloggedIn") && localStorage.getItem("cartItUserID")) {
-            axios.get(`http://localhost:3001/api/user/${localStorage.getItem("cartItUserID")}`)
+        const isAuthenticated = localStorage.getItem("cartItLoggedIn");
+        const userID = localStorage.getItem("cartItUserID");
+
+        if (isAuthenticated && userID) {
+            axios.get(`http://localhost:3001/api/user/${userID}`)
                 .then(res =>{
                     this.setState({
                         user: res.data,
@@ -33,7 +36,8 @@ export default class Authentication extends Component {
 
     loginWasSuccessful(user) {
         localStorage.setItem('cartItUserID', user._id);
-        localStorage.setItem('cartItloggedIn', true);
+        localStorage.setItem('cartItLoggedIn', true);
+
         this.setState({
             IsUserLoggedIn: true,
             user: user
@@ -41,7 +45,7 @@ export default class Authentication extends Component {
     }
 
     logUserOut() {
-        localStorage.removeItem("cartItloggedIn");
+        localStorage.removeItem("cartItLoggedIn");
         localStorage.removeItem("cartItUserID");
         this.setState({
             IsUserLoggedIn: false,
