@@ -14,22 +14,25 @@
 
 .signInSignUpContainerInner {
     background-color: #ffffff;
-    box-shadow: 0px 0px 30px rgba(0,0,0, 0.15);
+    box-shadow: 1px 1px 15px rgba(0,0,0, 0.13);
     padding: 2em 2em 2em 2em;
+    border-radius: 3px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 400px;
+    width: 300px;
 }
 
-button.signInOrUpToggle {
+a.signInOrUpToggle {
     border-radius: 0;
     box-shadow: 0px 0px 0px transparent;
     border: 0px solid;
     background-color: transparent;
     text-decoration: underline;
-    color: red;
+    color: #999;
+    cursor: pointer;
+    font-size: 14px;
 }
 
 .signInOrUpToggle {
