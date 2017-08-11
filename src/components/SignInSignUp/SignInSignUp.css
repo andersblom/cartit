@@ -1,5 +1,6 @@
 .signInSignUpPageContainer {
-    background-color: #dedede;
+    background-color: #A152FF;
+    background: linear-gradient(270deg, #CC8AFF 0%, #A152FF 100%);
     min-height: 100%;
     height: auto;
     display: flex;
@@ -20,7 +21,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 400px;
+    width: 75%;
 }
 
 button.signInOrUpToggle {
