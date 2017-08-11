@@ -42,11 +42,11 @@ export default class SignUp extends Component {
     render() {
         return(
             <form className="signUpContainer" method="post" onSubmit={this.handleLoginRequest}>
-                <input type="text" name="username" value={this.state.usernameInput} onChange={this.handleUsernameInput} placeholder="username" />
-                <input type="text" name="email" value={this.state.emailInput} onChange={this.handleEmailInput} placeholder="email" />
-                <input type="password" name="password" value={this.state.passwordInput} onChange={this.handlePasswordInput} placeholder="password" />
-                <input type="password" name="confirmPassword" value={this.state.confirmPasswordInput} onChange={this.handleConfirmPasswordInput} placeholder="confirm password" />
-                <input type="submit" value="Log in" />
+                <input className="textInput" type="text" name="username" value={this.state.usernameInput} onChange={this.handleUsernameInput} placeholder="username" />
+                <input className="textInput" type="text" name="email" value={this.state.emailInput} onChange={this.handleEmailInput} placeholder="email" />
+                <input className="textInput" type="password" name="password" value={this.state.passwordInput} onChange={this.handlePasswordInput} placeholder="password" />
+                <input className="textInput" type="password" name="confirmPassword" value={this.state.confirmPasswordInput} onChange={this.handleConfirmPasswordInput} placeholder="confirm password" />
+                <input className="formSubmitButton" type="submit" value="Log in" />
                 {this.state.messageFromPostRequest}
             </form>
         );

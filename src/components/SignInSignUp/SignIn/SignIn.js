@@ -56,9 +56,9 @@ export default class SignIn extends Component {
     render() {
         return(
             <form className="signInContainer" method="post" onSubmit={this.handleLoginRequest}>
-                <input type="text" name="username" value={this.state.usernameInput} onChange={this.handleUsernameInput} placeholder="username" />
-                <input type="password" name="password" value={this.state.passwordInput} onChange={this.handlePasswordInput} placeholder="password" />
-                <input type="submit" value="Log in" />
+                <input className="textInput usernameInput" type="text" name="username" value={this.state.usernameInput} onChange={this.handleUsernameInput} placeholder="username" />
+                <input className="textInput passwordInput" type="password" name="password" value={this.state.passwordInput} onChange={this.handlePasswordInput} placeholder="password" />
+                <input className="formSubmitButton" type="submit" value="Log in" />
                 {(this.state.errorMessageDisplay === true) ? 
                     <div className="signInError">
                         {this.state.messageFromPostRequest}

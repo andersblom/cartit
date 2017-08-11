@@ -4,6 +4,30 @@
     flex-wrap: wrap;
     justify-content: flex-start;
     align-items: center;
+    width: 100%;
+}
+
+.textInput {
+    display: block;
+    border: 0px none;
+    outline: none;
+    padding: 1em 1em 1em 1em;
+    font-size: 16px;
+    border-bottom: 2px solid #eeeeee;
+    transition: 200ms border-bottom-color ease-in-out;
+    border-radius: 0px;
+    width: 100%;
+    color: #666;
+}
+
+.textInput:focus {
+    border-bottom-color: #A152FF;  
+}
+
+
+.formSubmitButton {
+    display: block;
+    margin-top: 2em;
 }
 
 .signUpContainer input {

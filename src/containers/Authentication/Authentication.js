@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-import UserIsLoggedIn from '../../components/UserIsLoggedIn/UserIsLoggedIn';
+import UserIsLoggedIn from '../UserIsLoggedIn/UserIsLoggedIn';
 import SignInSignUp from '../../components/SignInSignUp/SignInSignUp';
 
 export default class Authentication extends Component {
