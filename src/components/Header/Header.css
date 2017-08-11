@@ -1,0 +1,30 @@
+header {
+    background-color: white;
+}
+
+.headerContents {
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.backArrow {
+    align-self: flex-start;
+}
+
+.appTitle {
+    align-self: center;
+}
+
+nav {
+    align-self: flex-end;
+}
+
+.navBottom {
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(270deg, #CE8AFF 0%, #A152FF 100%);
+}
