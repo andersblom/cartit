@@ -33,7 +33,7 @@ export default class SignInSignUp extends Component {
                         <SignUp />
                     }
 
-                    <button className="signInOrUpToggle" onClick={this.toggleSignInUp}>{(this.state.signInIsActive) ? "I don't have a user" : "I already have a user"}</button>
+                    <a className="signInOrUpToggle" onClick={this.toggleSignInUp}>{(this.state.signInIsActive) ? "I don't have a user" : "I already have a user"}</a>
                 </div>
             </div>
         );
