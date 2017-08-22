@@ -38,4 +38,4 @@ Gets all lists belonging to the user matching <USER ID>
 Gets the contents of the specified list.
 
 ```PUT /user/<USER ID>/lists/<LIST ID>```
-Update a lists' contents. Accepts an object with the following: *title* (string), *items* (array of objects with *itemName*, *order* and *statusIsDone*). Assigns a creation date and ID automatically.
+Update a lists' contents. Accepts an object with the following: *title* (string), *items* (array of objects with *itemName* (string), *order* (integer) and *statusIsDone* (boolean)). Assigns a creation date and ID automatically.
