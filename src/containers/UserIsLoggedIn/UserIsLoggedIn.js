@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link, Route } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 
 import ShowAllLists from '../../components/ShowAllLists/ShowAllLists';
 import UserSettings from '../../components/UserSettings/UserSettings';
