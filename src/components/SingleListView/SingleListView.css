@@ -19,3 +19,11 @@
 .singleShoppingListItem-status {
     margin-left: auto;
 }
+
+.singleShoppingListItem-itemName.not-editing input, .singleShoppingListItem-itemName.editing label {
+    display: none;
+}
+
+.singleShoppingListItem-itemName.editing input, .singleShoppingListItem-itemName.not-editing label {
+    display: block;
+}
