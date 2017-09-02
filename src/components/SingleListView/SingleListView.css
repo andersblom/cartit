@@ -1,0 +1,16 @@
+.singleShoppingListItem {
+    background-color: #ffffff;
+    margin-bottom: 1em;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.singleShoppingListItem-itemName {
+    margin: 0 auto;
+}
+
+.singleShoppingListItem-status {
+    /* margin-left: auto; */
+}
