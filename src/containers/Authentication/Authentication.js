@@ -21,7 +21,7 @@ export default class Authentication extends Component {
         const userID = localStorage.getItem("cartItUserID");
 
         if (isAuthenticated && userID) {
-            axios.get(`http://localhost:3001/api/user/${userID}`)
+            axios.get(`api/user/${userID}`)
                 .then(res =>{
                     this.setState({
                         user: res.data,
